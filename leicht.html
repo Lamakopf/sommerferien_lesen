@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Simons Schatzsuche am Meer – Lesespur</title>
+  <style>
+    /* Mittiges Layout */
+    html,body{height:100%;margin:0;}
+    body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#f0fbff;
+      font-family:sans-serif;
+      line-height:1.6;
+      text-align:center;
+    }
+    #content{max-width:700px;padding:2rem;}
+    .section{display:none;}
+    .visible{display:block;}
+    button{
+      margin:0.5em 0;
+      padding:0.6em 1.4em;
+      background:#00a6fb;
+      border:none;
+      border-radius:8px;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+    }
+    button:hover{background:#0077b6;}
+  </style>
+  <script>
+    function showSection(id){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
+      document.getElementById(id).classList.add('visible');
+      window.scrollTo(0,0);
+    }
+    window.onload=function(){showSection('start');};
+  </script>
+</head>
+<body>
+<main id="content">
+  <!-- Start -->
+  <div id="start" class="section visible">
+    <h1>Simons Ferien‑Abenteuer</h1>
+    <p>Sommerferien! Simon steigt aus dem Auto. Er riecht Salz. Der Sand ist warm. Das Meer ruft.</p>
+    <button onclick="showSection('strand')">Am Strand laufen</button>
+    <button onclick="showSection('wasser')">Ins Wasser rennen</button>
+  </div>
+
+  <!-- Strand -->
+  <div id="strand" class="section">
+    <p>Simon geht am Ufer. Etwas glitzert im Sand. Es ist eine grüne Flasche mit Wachs.</p>
+    <button onclick="showSection('flasche')">Flasche öffnen</button>
+    <button onclick="showSection('bademeister')">Zum Bademeister gehen</button>
+  </div>
+
+  <!-- Wasser -->
+  <div id="wasser" class="section">
+    <p>Das Wasser ist kalt. Eine Welle wirft Simon um. Er wird nass. Er geht zurück.</p>
+    <button onclick="showSection('strand')">Zum Strand zurück</button>
+  </div>
+
+  <!-- Flasche -->
+  <div id="flasche" class="section">
+    <p>Plopp! Der Korken ist ab. In der Flasche liegt eine Karte. Ein großes X, ein Leuchtturm und die Worte: „Gold der Gezeiten“.</p>
+    <button onclick="showSection('karte')">Karte ansehen</button>
+    <button onclick="showSection('mama')">Mama fragen</button>
+  </div>
+
+  <!-- Bademeister -->
+  <div id="bademeister" class="section">
+    <p>Der Bademeister lacht. „Eine Schatzkarte? Das ist sicher Werbung!“ Er behält die Flasche. Simon will sie zurück.</p>
+    <button onclick="showSection('flasche')">Flasche zurückholen</button>
+  </div>
+
+  <!-- Mama -->
+  <div id="mama" class="section">
+    <p>„Klingt spannend“, sagt Mama. „Bleib in der Nähe.“</p>
+    <button onclick="showSection('karte')">Dem Weg folgen</button>
+  </div>
+
+  <!-- Karte -->
+  <div id="karte" class="section">
+    <p>Die Karte zeigt drei Bilder: einen Wal‑Felsen, einen Leuchtturm und einen Pfeil hinter die Dünen.</p>
+    <button onclick="showSection('duenen')">Zu den Dünen</button>
+    <button onclick="showSection('felsen')">Zum Wal‑Felsen</button>
+  </div>
+
+  <!-- Dünen -->
+  <div id="duenen" class="section">
+    <p>Hinter den Dünen liegt eine Kiste im Sand. Ein Zahlenschloss hält sie zu.</p>
+    <button onclick="showSection('leuchtturm')">Zum Leuchtturm gehen</button>
+    <button onclick="showSection('ratlos')">Ratlos zurück</button>
+  </div>
+
+  <!-- Felsen -->
+  <div id="felsen" class="section">
+    <p>Am Wal‑Felsen findet Simon nur Algen und Krabben. Kein Hinweis.</p>
+    <button onclick="showSection('duenen')">Zurück zu den Dünen</button>
+  </div>
+
+  <!-- Leuchtturm -->
+  <div id="leuchtturm" class="section">
+    <p>Im Leuchtturm hängt ein Schild: „Erste Flut 8, Zweite 3, Letzte 5“. Simon merkt sich: 8‑3‑5.</p>
+    <button onclick="showSection('truhe')">Code 8‑3‑5 eingeben</button>
+  </div>
+
+  <!-- Ratlos -->
+  <div id="ratlos" class="section">
+    <p>Simon kratzt sich am Kopf. Ohne Code kein Schatz. Er denkt an den Leuchtturm.</p>
+    <button onclick="showSection('leuchtturm')">Zum Leuchtturm</button>
+  </div>
+
+  <!-- Truhe -->
+  <div id="truhe" class="section">
+    <p>Klack! Das Schloss springt auf. In der Kiste glänzen Glasperlen, eine alte Münze und ein Brief: „Der Schatz ist das Abenteuer. Teile es!“</p>
+    <button onclick="showSection('schatz')">Freuen</button>
+  </div>
+
+  <!-- Schatz -->
+  <div id="schatz" class="section">
+    <p>Simon hüpft vor Freude. Er hält die Münze ins Licht. Das größte Geschenk sind die Geschichten.</p>
+    <button onclick="showSection('start')">Nochmal spielen</button>
+  </div>
+</main>
+</body>
+</html>

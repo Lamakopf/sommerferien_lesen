@@ -2,124 +2,51 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Simons Schatzsuche am Meer – Lesespur</title>
+  <title>Simons Schatzsuche – Start</title>
   <style>
-    /* Grund‑Reset & zentrales Layout */
+    /* Vollbild‑Flexbox für zentriertes Layout */
     html,body{height:100%;margin:0;}
     body{
-      display:flex;                 /* Bildschirm‑Flexbox */
-      justify-content:center;       /* Horizontal mittig */
-      align-items:center;           /* Vertikal mittig */
-      background:#f0fbff;           /* Hellblauer Hintergrund */
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:#e0f7ff;
       font-family:sans-serif;
-      line-height:1.6;
       text-align:center;
+      gap:1.2rem;
     }
-
-    /* Inhaltlicher Wrapper – begrenzt Breite & sorgt für Abstand */
-    #content{
-      max-width:700px;
-      padding:2rem;
-    }
-
-    /* Abschnitte des Spiels */
-    .section{display:none;}
-    .visible{display:block;}
-
-    /* Buttons */
-    button{
-      margin:0.5em 0;
-      padding:0.6em 1.4em;
-      background:#00a6fb;
-      border:none;
-      border-radius:8px;
+    h1{font-size:2rem;margin:0;}
+    .btn{
+      display:inline-block;
+      padding:0.8em 1.8em;
+      margin:0 0.5em;
+      background:#0077b6;
       color:#fff;
-      font-size:1rem;
-      cursor:pointer;
+      text-decoration:none;
+      border-radius:10px;
+      font-size:1.1rem;
+      transition:background 0.2s;
     }
-    button:hover{background:#0077b6;}
+    .btn:hover{background:#005a87;}
+    img{
+      max-width:90%;
+      height:auto;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
   </style>
-  <script>
-    function showSection(id){
-      document.querySelectorAll('.section').forEach(s=>s.classList.remove('visible'));
-      document.getElementById(id).classList.add('visible');
-      window.scrollTo(0,0);
-    }
-    window.onload=function(){showSection('start');};
-  </script>
 </head>
 <body>
+  <h1>Simons Schatzsuche am Meer</h1>
 
-<div id="start" class="section visible">
-  <h1>Simons Sommerferien-Abenteuer</h1>
-  <p>Endlich Sommerferien! Simon steigt aus dem Auto, riecht die salzige Luft und spürt warmen Sand unter den Füßen. Sein Herz klopft – das Meer ruft.</p>
-  <button onclick="showSection('strand')">Barfuß den Strand entlang laufen</button>
-  <button onclick="showSection('wasser')">Gleich ins Wasser rennen</button>
-</div>
+  <!-- Schwierigkeitsauswahl -->
+  <div>
+    <a class="btn" href="leicht.html">Leicht</a>
+    <a class="btn" href="schwer.html">Schwer</a>
+  </div>
 
-<div id="strand" class="section">
-  <p>Simon schlendert am Ufer. Plötzlich blitzt etwas im Sand: eine grünglasige Flasche mit Wachssiegel.</p>
-  <button onclick="showSection('flasche')">Die Flasche öffnen</button>
-  <button onclick="showSection('bademeister')">Die Flasche dem Bademeister zeigen</button>
-</div>
-
-<div id="wasser" class="section">
-  <p>Das Wasser ist eiskalt! Simon quietscht, stolpert über eine Welle und platscht hin. Triefnass trottet er zurück – die nassen Shorts kleben.</p>
-  <button onclick="showSection('strand')">Zurück zum Ufer</button>
-</div>
-
-<div id="flasche" class="section">
-  <p>Mit knackendem Geräusch springt der Korken ab. Im Inneren steckt eine zerknitterte Karte, darauf ein großes <em>X</em>, ein Leuchtturm und die Worte: „Gold der Gezeiten“.</p>
-  <button onclick="showSection('karte')">Die Karte genau ansehen</button>
-  <button onclick="showSection('mama')">Erst Mama fragen, ob das echt ist</button>
-</div>
-
-<div id="bademeister" class="section">
-  <p>Der Bademeister lacht: „Eine Schatzkarte? Bestimmt ein Werbegag!“ Er behält die Flasche für seine Sammlung. Simon aber will es genauer wissen.</p>
-  <button onclick="showSection('flasche')">Die Flasche zurückholen</button>
-</div>
-
-<div id="mama" class="section">
-  <p>„Klingt nach Abenteuer“, sagt Mama und zwinkert. „Aber bleib in Sichtweite!“</p>
-  <button onclick="showSection('karte')">Dem Weg folgen</button>
-</div>
-
-<div id="karte" class="section">
-  <p>Die Karte zeigt drei Symbole: einen Felsen wie einen Wal, einen alten Leuchtturm und einen Pfeil, der hinter die Dünen führt.</p>
-  <button onclick="showSection('duenen')">Hinter die Dünen gehen</button>
-  <button onclick="showSection('felsen')">Zum Wal-Felsen klettern</button>
-</div>
-
-<div id="duenen" class="section">
-  <p>Zwischen Raschelgras und Muschelpfad liegt eine halb vergrabene Kiste. Doch sie ist mit einem Zahlenschloss gesichert.</p>
-  <button onclick="showSection('leuchtturm')">Zahlencode im Leuchtturm suchen</button>
-  <button onclick="showSection('ratlos')">Ratlos zurück zum Strand</button>
-</div>
-
-<div id="felsen" class="section">
-  <p>Am Wal-Felsen entdeckt Simon nur Algen und Krabben. Kein Hinweis. Vielleicht war das der falsche Ort.</p>
-  <button onclick="showSection('duenen')">Zurück zu den Dünen</button>
-</div>
-
-<div id="leuchtturm" class="section">
-  <p>Im Leuchtturm hängt ein verblasstes Schild: „Erste Flut 8, Zweite Flut 3, Letzte Flut 5“. Simon notiert die Zahlen 8‑3‑5.</p>
-  <button onclick="showSection('truhe')">Zur Kiste zurück und 8‑3‑5 eingeben</button>
-</div>
-
-<div id="ratlos" class="section">
-  <p>Simon kratzt sich den Kopf. Ohne Code kein Schatz. Da erinnert er sich an das Leuchtturm‑Bild auf der Karte.</p>
-  <button onclick="showSection('leuchtturm')">Doch zum Leuchtturm gehen</button>
-</div>
-
-<div id="truhe" class="section">
-  <p>Klick! Das Schloss springt auf. In der Kiste glitzern bunte Glasperlen, eine alte Münze und ein Brief: „Reichtum ist das Abenteuer selbst – teile es!“</p>
-  <button onclick="showSection('schatz')">Vorlesen und feiern</button>
-</div>
-
-<div id="schatz" class="section">
-  <p>Simon rennt jubelnd zum Wasser, hält die Münze gegen die Sonne und weiß: Das größte Geschenk sind Geschichten, die man erlebt.</p>
-  <button onclick="showSection('start')">Nochmal von vorn spielen</button>
-</div>
-
+  <!-- Platzhalter für Titelbild -->
+  <img src="sommerferien.png" alt="Sommerferien am Strand – Illustration"/>
 </body>
 </html>

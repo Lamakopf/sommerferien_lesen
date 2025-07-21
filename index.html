@@ -4,10 +4,39 @@
   <meta charset="UTF-8">
   <title>Simons Schatzsuche am Meer – Lesespur</title>
   <style>
-    body{font-family:sans-serif;background:#f0fbff;padding:2rem;max-width:700px;margin:auto;line-height:1.6;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;text-align:center;}
-    .section{display:none;width:100%;}
+    /* Grund‑Reset & zentrales Layout */
+    html,body{height:100%;margin:0;}
+    body{
+      display:flex;                 /* Bildschirm‑Flexbox */
+      justify-content:center;       /* Horizontal mittig */
+      align-items:center;           /* Vertikal mittig */
+      background:#f0fbff;           /* Hellblauer Hintergrund */
+      font-family:sans-serif;
+      line-height:1.6;
+      text-align:center;
+    }
+
+    /* Inhaltlicher Wrapper – begrenzt Breite & sorgt für Abstand */
+    #content{
+      max-width:700px;
+      padding:2rem;
+    }
+
+    /* Abschnitte des Spiels */
+    .section{display:none;}
     .visible{display:block;}
-    button{margin:0.5em 0;padding:0.6em 1.4em;background:#00a6fb;border:none;border-radius:8px;color:#fff;font-size:1rem;cursor:pointer;}
+
+    /* Buttons */
+    button{
+      margin:0.5em 0;
+      padding:0.6em 1.4em;
+      background:#00a6fb;
+      border:none;
+      border-radius:8px;
+      color:#fff;
+      font-size:1rem;
+      cursor:pointer;
+    }
     button:hover{background:#0077b6;}
   </style>
   <script>
